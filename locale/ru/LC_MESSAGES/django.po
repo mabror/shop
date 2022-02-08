@@ -1,0 +1,411 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-25 16:32+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: account/templates/account/change_password.html:13
+msgid "Save"
+msgstr "Сохранить"
+
+#: account/templates/account/login.html:10
+#: account/templates/account/register.html:9
+msgid "Login/Register"
+msgstr "Войти/Зарегистрироваться"
+
+#: account/templates/account/login.html:12
+#: account/templates/account/register.html:11
+#: shop_product/templates/shop_product/brand.html:12
+#: shop_product/templates/shop_product/cart.html:12
+#: shop_product/templates/shop_product/category.html:13
+#: shop_product/templates/shop_product/order.html:12
+#: shop_product/templates/shop_product/order_detail.html:13
+#: shop_product/templates/shop_product/product_detail.html:13
+msgid "Home"
+msgstr "Главная"
+
+#: account/templates/account/login.html:13 templates/layout.html:94
+msgid "Login"
+msgstr "Войти"
+
+#: account/templates/account/login.html:29
+msgid "New to our website?"
+msgstr "Впервые на нашем сайте?"
+
+#: account/templates/account/login.html:30
+msgid ""
+"There are advances being made in science and technology everyday, and a good "
+"example of this is the"
+msgstr ""
+"Ежедневно наука и технологии достигают прогресса, и хорошим примером этого "
+"является"
+
+#: account/templates/account/login.html:31
+#: account/templates/account/register.html:37
+msgid "Create an Account"
+msgstr "Завести аккаунт"
+
+#: account/templates/account/login.html:37
+msgid "Log in to enter"
+msgstr "Авторизуйтесь, чтобы войти"
+
+#: account/templates/account/login.html:51
+msgid "Keep me logged in"
+msgstr "Оставаться в системе"
+
+#: account/templates/account/login.html:55
+msgid "Log In"
+msgstr "Авторизоваться"
+
+#: account/templates/account/login.html:56
+msgid "Forgot Password?"
+msgstr "Забыли пароль?"
+
+#: account/templates/account/profil.html:24
+msgid "Order history"
+msgstr "История для заказа"
+
+#: account/templates/account/profil.html:25
+msgid "Edit Profil"
+msgstr "Редактировать профиль"
+
+#: account/templates/account/profil.html:26
+msgid "Password change"
+msgstr "Изменение пароля"
+
+#: account/templates/account/profil.html:39
+msgid "Fisrt Name"
+msgstr "Имя"
+
+#: account/templates/account/profil.html:47
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: account/templates/account/profil.html:55
+msgid "Email"
+msgstr "Эл. адрес"
+
+#: account/templates/account/profil.html:63
+msgid "Phone Number"
+msgstr "Номер телефона"
+
+#: account/templates/account/register.html:12 templates/layout.html:95
+msgid "Register"
+msgstr "Регистр"
+
+#: shop_product/templates/shop_product/brand.html:13
+#: shop_product/templates/shop_product/category.html:15
+#: shop_product/templates/shop_product/product_detail.html:56
+msgid "Category"
+msgstr "Категория"
+
+#: shop_product/templates/shop_product/brand.html:14
+#: shop_product/templates/shop_product/category.html:113
+msgid "Brand"
+msgstr "Марка"
+
+#: shop_product/templates/shop_product/brand.html:88
+#: shop_product/templates/shop_product/category.html:90
+#: shop_product/templates/shop_product/product.html:148
+#: shop_product/templates/shop_product/product_edit.html:23
+msgid "Edit"
+msgstr "Редактировать"
+
+#: shop_product/templates/shop_product/brand.html:93
+#: shop_product/templates/shop_product/category.html:95
+#: shop_product/templates/shop_product/product.html:153
+msgid "Delete"
+msgstr "Удалить"
+
+#: shop_product/templates/shop_product/brand.html:107
+#: shop_product/templates/shop_product/category.html:110
+msgid "Product Filters"
+msgstr "Фильтры продуктов"
+
+#: shop_product/templates/shop_product/cart.html:10
+msgid "Shopping Cart"
+msgstr "Корзина покупателя"
+
+#: shop_product/templates/shop_product/cart.html:13
+msgid "cart"
+msgstr "корзина"
+
+#: shop_product/templates/shop_product/cart.html:30
+msgid "Product Foto"
+msgstr "Фото продукта"
+
+#: shop_product/templates/shop_product/cart.html:31
+#: shop_product/templates/shop_product/product_detail.html:52
+msgid "Name"
+msgstr "Название"
+
+#: shop_product/templates/shop_product/cart.html:32
+#: shop_product/templates/shop_product/product_detail.html:54
+msgid "Price"
+msgstr "Цена"
+
+#: shop_product/templates/shop_product/cart.html:33
+#: shop_product/templates/shop_product/order_detail.html:57
+msgid "Quantity"
+msgstr "Количество"
+
+#: shop_product/templates/shop_product/cart.html:34
+#: shop_product/templates/shop_product/order.html:29
+msgid "Subtotal"
+msgstr "Промежуточный итог"
+
+#: shop_product/templates/shop_product/cart.html:35
+msgid "Action"
+msgstr "Действие"
+
+#: shop_product/templates/shop_product/cart.html:58
+msgid "Checkout"
+msgstr "Проверить"
+
+#: shop_product/templates/shop_product/cart.html:60
+#: shop_product/templates/shop_product/order_detail.html:58
+#: shop_product/templates/shop_product/order_detail.html:82
+msgid "Total"
+msgstr "Общий"
+
+#: shop_product/templates/shop_product/cart.html:63
+msgid "All Delete"
+msgstr "Удалить Все"
+
+#: shop_product/templates/shop_product/categories.html:11
+#: shop_product/templates/shop_product/categories.html:113
+#: shop_product/templates/shop_product/category.html:11
+msgid "Shop Category Page"
+msgstr "Страница категории магазина"
+
+#: shop_product/templates/shop_product/categories.html:14
+#: shop_product/templates/shop_product/category.html:14
+msgid "Categories"
+msgstr "Категории"
+
+#: shop_product/templates/shop_product/categories.html:28
+msgid "Browse Categories"
+msgstr "Обзор категорий"
+
+#: shop_product/templates/shop_product/chekout.html:24
+msgid "Billing Details"
+msgstr "Платежные реквизиты"
+
+#: shop_product/templates/shop_product/chekout.html:65
+msgid "Proceed to Apelsin"
+msgstr "Перейти в Апельсин"
+
+#: shop_product/templates/shop_product/chekout.html:71
+msgid "Your Order"
+msgstr "Твоя очередь"
+
+#: shop_product/templates/shop_product/chekout.html:88
+msgid "Check payments"
+msgstr "Проверить платежи"
+
+#: shop_product/templates/shop_product/chekout.html:97
+msgid "I’ve read and accept the"
+msgstr "Я прочитал и принимаю"
+
+#: shop_product/templates/shop_product/chekout.html:100
+msgid "Continuie shopping"
+msgstr "Продолжайте покупки"
+
+#: shop_product/templates/shop_product/order.html:10
+msgid "Order Detail"
+msgstr "Детали заказа"
+
+#: shop_product/templates/shop_product/order.html:13
+#: shop_product/templates/shop_product/order_detail.html:14
+#: templates/layout.html:84
+msgid "Confirmation"
+msgstr "Подтверждение"
+
+#: shop_product/templates/shop_product/order.html:27
+msgid "User"
+msgstr "Пользователь"
+
+#: shop_product/templates/shop_product/order.html:28
+msgid "Phone"
+msgstr "Телефон"
+
+#: shop_product/templates/shop_product/order.html:30
+msgid "Confirm"
+msgstr "Подтверждать"
+
+#: shop_product/templates/shop_product/order.html:46
+msgid "Order confirmations"
+msgstr "Подтверждения заказа"
+
+#: shop_product/templates/shop_product/order_detail.html:11
+msgid "Order Confirmation"
+msgstr "Подтверждение заказа"
+
+#: shop_product/templates/shop_product/order_detail.html:25
+msgid "Thank you. Your order has been received."
+msgstr "Спасибо. Ваш заказ был получен."
+
+#: shop_product/templates/shop_product/order_detail.html:29
+msgid "Order Info"
+msgstr "Информация о заказе"
+
+#: shop_product/templates/shop_product/order_detail.html:31
+msgid "Name customer"
+msgstr "Имя клиента"
+
+#: shop_product/templates/shop_product/order_detail.html:32
+msgid "Date"
+msgstr "Дата"
+
+#: shop_product/templates/shop_product/order_detail.html:33
+msgid "Payment statuss"
+msgstr "Статус платежа"
+
+#: shop_product/templates/shop_product/order_detail.html:39
+msgid "Shipping Address"
+msgstr "Адреса доставки"
+
+#: shop_product/templates/shop_product/order_detail.html:41
+msgid "Street"
+msgstr "улица"
+
+#: shop_product/templates/shop_product/order_detail.html:42
+msgid "City"
+msgstr "Город"
+
+#: shop_product/templates/shop_product/order_detail.html:43
+msgid "House number"
+msgstr "Номер дома"
+
+#: shop_product/templates/shop_product/order_detail.html:51
+msgid "Order Details"
+msgstr "Информация для заказа"
+
+#: shop_product/templates/shop_product/order_detail.html:56
+msgid "Product"
+msgstr "Продукт"
+
+#: shop_product/templates/shop_product/order_detail.html:96
+msgid "Payment"
+msgstr "Оплата"
+
+#: shop_product/templates/shop_product/product.html:11
+msgid "Collections!"
+msgstr "Коллекция"
+
+#: shop_product/templates/shop_product/product.html:14
+msgid "View Collection"
+msgstr "Посмотреть коллекцию"
+
+#: shop_product/templates/shop_product/product.html:32
+msgid "Top Products"
+msgstr "Лучшие продукты"
+
+#: shop_product/templates/shop_product/product.html:33
+#: shop_product/templates/shop_product/product.html:77
+#: shop_product/templates/shop_product/product.html:111
+#: shop_product/templates/shop_product/product.html:175
+#: shop_product/templates/shop_product/search.html:24
+msgid "Who are in extremely love with eco friendly system."
+msgstr "Кто безумно любит экологически чистую систему."
+
+#: shop_product/templates/shop_product/product.html:76
+msgid "Exclusive Hot Deal Ends Soon!"
+msgstr "Эксклюзивная горячая сделка скоро закончится!"
+
+#: shop_product/templates/shop_product/product.html:78
+msgid "Shop Now"
+msgstr "Купить сейчас"
+
+#: shop_product/templates/shop_product/product.html:110
+msgid "Latest Products"
+msgstr "Последние продукты"
+
+#: shop_product/templates/shop_product/product.html:129
+#: shop_product/templates/shop_product/product_detail.html:57
+msgid "On Sale"
+msgstr "В продаже"
+
+#: shop_product/templates/shop_product/product.html:174
+msgid "Top Brands of this Month"
+msgstr "Лучшие бренды этого месяца"
+
+#: shop_product/templates/shop_product/product_detail.html:11
+msgid "Single Product Page"
+msgstr "Страница одного продукта"
+
+#: shop_product/templates/shop_product/product_detail.html:14
+msgid "Product Details"
+msgstr "Информация о продукте"
+
+#: shop_product/templates/shop_product/product_detail.html:53
+msgid "Previous price"
+msgstr "Предыдущая цена"
+
+#: shop_product/templates/shop_product/product_detail.html:57
+msgid "Don't have"
+msgstr "Нет имеется"
+
+#: shop_product/templates/shop_product/product_detail.html:63
+msgid "Add to Cart"
+msgstr "Добавить в корзину"
+
+#: shop_product/templates/shop_product/product_detail.html:79
+msgid "Specification"
+msgstr "Технические характеристики"
+
+#: shop_product/templates/shop_product/product_detail.html:83
+msgid "Comments"
+msgstr "Комментарии"
+
+#: shop_product/templates/shop_product/product_edit.html:14
+msgid "Product Edit"
+msgstr "Редактировать продукт"
+
+#: shop_product/templates/shop_product/search.html:23
+msgid "Searched Products"
+msgstr "Искомые товары"
+
+#: templates/layout.html:34
+msgid "Welcome to Catalouge"
+msgstr "Добро пожаловать в Каталуж"
+
+#: templates/layout.html:65
+msgid "Languages"
+msgstr "Языки"
+
+#: templates/layout.html:78
+msgid "Shop"
+msgstr "Магазин"
+
+#: templates/layout.html:81
+msgid "Shop Category"
+msgstr "Категория магазина"
+
+#: templates/layout.html:83
+msgid "Product Checkout"
+msgstr "Проверка продукта"
+
+#: templates/layout.html:92
+msgid "Pages"
+msgstr "Страницы"
+
+#: templates/layout.html:97
+msgid "Logout"
+msgstr "Выйти"

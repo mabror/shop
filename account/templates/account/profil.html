@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <div class="container" style="margin-top: 150px;">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            {% if user_profile.image %}
+                                <img src="{{ user_profile.image.url }}" alt="Admin"
+                                     class="rounded-circle p-1 bg-primary" width="200">
+                            {% else %}
+                                <img src="{% static 'img/avatar-3.png' %}" alt="Admin"
+                                     class="rounded-circle p-1 bg-primary" width="200">
+                            {% endif %}
+                            <div class="mt-3">
+                                <h4>{{ user_profile }}</h4>
+                                <hr class="my-4"/>
+                            </div>
+                            <div>
+                                <a href="{% url 'shop_product:myorder' %}" class="main_btn">{% trans 'Order history' %}</h>
+                                <a href="{% url 'account:edit_profil' %}" class="main_btn mt-2">{% trans 'Edit Profil' %}</a>
+                                <a href="{% url 'account:change_password' %}" class="main_btn mt-2 rounded">{% trans 'Password change' %}</a>
+                                
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">{% trans 'Fisrt Name' %}</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <h class="form-control">{{ user_profile.first_name }}</h>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">{% trans 'Last Name' %}</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <h class="form-control">{{ user_profile.last_name }}</h>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">{% trans 'Email' %}</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <h class="form-control">{{ user_profile.email }}</h>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">{% trans 'Phone Number' %}</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <h class="form-control">{{ user_profile.phone }}</h>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,223 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <section class="home_banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content row">
+                    <div class="col-lg-5">
+                        <h3>Georgia Helmet <br/>{% trans 'Collections!' %}</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                        <a class="white_bg_btn" href="#">{% trans 'View Collection' %}</a>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="halemet_img">
+                            <img src="{% static 'img/banner/helmat.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature_product_area">
+        <div class="main_box">
+            <div class="container">
+
+                <div class="feature_product_inner">
+                    <div class="main_title">
+                        <h2>{% trans 'Top Products' %}</h2>
+                        <p>{% trans 'Who are in extremely love with eco friendly system.' %}</p>
+                    </div>
+
+                    <div class="feature_p_slider owl-carousel">
+                        {% for product in products %}
+                            {% if product.rating > 3.5 %}
+                                <div class="item">
+                                    <div class="f_p_item">
+                                        <div class="f_p_img">
+                                            <img class="img-fluid" src="{{ product.image.url }}"
+                                                 alt="">
+                                            <div class="p_icon">
+
+                                                <a href="{% url 'shop_product:pro_detail' product.slug %}"><i
+                                                        class="lnr lnr-cart"></i></a>
+                                            </div>
+                                        </div>
+                                        <a href="#"><h4>{{ product.name }}</h4></a>
+                                        <h5><i class="
+                                    {% if product.rating < 0.5 %}far fa-star {% elif product.rating == 0.5 %} fa fa-star-half-alt {% else %} fa fa-star {% endif %} "
+                                               aria-hidden="true" style="color: yellow"></i>
+                                            <i class="
+                                     {% if product.rating < 1.5 %}far fa-star {% elif product.rating == 1.5 %}fa fa-star-half-alt {% else %} fa fa-star{% endif %} "
+                                               aria-hidden="true" style="color: yellow"></i>
+                                            <i class="
+                                    {% if product.rating < 2.5 %}far fa-star{% elif product.rating == 2.5 %}fa fa-star-half-alt {% else %} fa fa-star{% endif %} "
+                                               aria-hidden="true" style="color: yellow"></i>
+                                            <i class="
+                                     {% if product.rating < 3.5 %}far fa-star{% elif product.rating == 3.5 %}fa fa-star-half-alt {% else %} fa fa-star{% endif %} "
+                                               aria-hidden="true" style="color: yellow">
+                                            </i></h5>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="timer_area">
+        <div class="container">
+            <div class="main_title">
+                <h2>{% trans 'Exclusive Hot Deal Ends Soon!' %}</h2>
+                <p>{% trans 'Who are in extremely love with eco friendly system.' %}</p>
+                <a class="main_btn" href="#">{% trans 'Shop Now' %}</a>
+            </div>
+            <div class="timer_inner">
+                <div id="timer" class="timer">
+                    <div class="timer__section days">
+                        <div class="timer__number"></div>
+                        <div class="timer__label">days</div>
+                    </div>
+                    <div class="timer__section hours">
+                        <div class="timer__number"></div>
+                        <div class="timer__label">hours</div>
+                    </div>
+                    <div class="timer__section minutes">
+                        <div class="timer__number"></div>
+                        <div class="timer__label">Minutes</div>
+                    </div>
+                    <div class="timer__section seconds">
+                        <div class="timer__number"></div>
+                        <div class="timer__label">seconds</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Deal Timer Area =================-->
+
+    <!--================Latest Product Area =================-->
+    <section class="feature_product_area latest_product_area">
+        <div class="main_box">
+            <div class="container">
+                <div class="feature_product_inner">
+                    <div class="main_title">
+                        <h2>{% trans 'Latest Products' %}</h2>
+                        <p>{% trans 'Who are in extremely love with eco friendly system.' %}</p>
+                    </div>
+                    <div class="latest_product_inner row">
+                        {% for product in products %}
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+
+                                <div class="f_p_item">
+
+                                    <div class="f_p_img">
+                                        <img class="img-fluid" src="{{ product.image.url }}"
+                                             alt="">
+                                        <div class="p_icon">
+
+                                            <a href="{% url 'shop_product:pro_detail' product.slug %}"><i
+                                                    class="lnr lnr-cart"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <a href="{% url 'shop_product:pro_detail' product.slug %}">
+                                        <h4>{{ product.name }}</h4></a>
+                                    <h5>{% trans 'On Sale' %}: {{ product.countInstok }}</h5>
+                                    <h5 class="mt-1">{{ product.selling_price }} $</h5>
+                                    <i class="
+                                            {% if product.rating < 0.5 %}far fa-star {% elif product.rating == 0.5 %} fa fa-star-half-alt {% else %} fa fa-star {% endif %} "
+                                       aria-hidden="true" style="color: yellow"></i>
+                                    <i class="
+                                             {% if product.rating < 1.5 %}far fa-star {% elif product.rating == 1.5 %}fa fa-star-half-alt {% else %} fa fa-star{% endif %} "
+                                       aria-hidden="true" style="color: yellow"></i>
+                                    <i class="
+                                            {% if product.rating < 2.5 %}far fa-star{% elif product.rating == 2.5 %}fa fa-star-half-alt {% else %} fa fa-star{% endif %} "
+                                       aria-hidden="true" style="color: yellow"></i>
+                                    <i class="
+                                             {% if product.rating < 3.5 %}far fa-star{% elif product.rating == 3.5 %}fa fa-star-half-alt {% else %} fa fa-star{% endif %} "
+                                       aria-hidden="true" style="color: yellow">
+                                    </i>
+                                    <br/>
+                                    <div class="mt-2">
+                                        {% if user.is_authenticated and product.user_id == user.id or user.is_staff %}
+                                            <a class="btn bg-primary text-white"
+                                               href="{% url 'shop_product:product_edit' product.id %}"><small><i>{% trans 'Edit' %}</i></small></a>
+                                        {% endif %}
+
+                                        {% if user.is_authenticated and product.user_id == user.id or user.is_staff %}
+                                            <a class="btn bg-danger text-white ml-1"
+                                               href="{% url 'shop_product:delete_product' product.id %}"><small><i>{% trans 'Delete' %}</i></small></a>
+                                        {% endif %}
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+             <div class="col-md-12 offset-6 mt-3">
+                <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline bg-primary">««</a>
+                {% endif %}
+
+                <span class="current text-light btn bg-primary">
+                    {{ page_obj.number }}
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline bg-primary"> »»</a>
+                {% endif %}
+            </span>
+                </div>
+            </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!--================End Latest Product Area =================-->
+
+    <!--================Clients Logo Area =================-->
+    <section class="clients_logo_area">
+        <div class="container">
+            <div class="main_title">
+                <h2>{% trans 'Top Brands of this Month' %}</h2>
+                <p>{% trans 'Who are in extremely love with eco friendly system.' %}</p>
+            </div>
+            <div class="clients_slider owl-carousel">
+                <div class="item">
+                    <img src="{% static 'img/clients-logo/c-logo-1.png' %}" alt="">
+                </div>
+                <div class="item">
+                    <img src="{% static 'img/clients-logo/c-logo-2.png' %}" alt="">
+                </div>
+                <div class="item">
+                    <img src="{% static 'img/clients-logo/c-logo-3.png' %}" alt="">
+                </div>
+                <div class="item">
+                    <img src="{% static 'img/clients-logo/c-logo-4.png' %}" alt="">
+                </div>
+                <div class="item">
+                    <img src="{% static 'img/clients-logo/c-logo-5.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Clients Logo Area =================-->
+
+    <!--================Most Product Area =================-->
+
+
+{% endblock %}

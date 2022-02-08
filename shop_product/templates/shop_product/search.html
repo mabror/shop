@@ -1,0 +1,83 @@
+{{% extends 'layout.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+     <section class="banner_area">
+            <div class="banner_inner d-flex align-items-center">
+				<div class="container">
+					<div class="banner_content text-center">
+                        {% if searched %}
+						<h2>You searched for {{ searched }}</h2>
+					</div>
+				</div>
+            </div>
+        </section>
+        
+
+        <section class="login_box_area p_120">
+        	<div class="main_box">
+                <div class="container">
+                    <div class="feature_product_inner">
+                        <div class="main_title">
+                            <h2>{% trans "Searched Products" %}</h2>
+                            <p>{% trans "Who are in extremely love with eco friendly system." %}</p>
+                        </div>
+                        <div class="latest_product_inner row">
+    
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                {% for product in products %}
+                                <div class="f_p_item">
+                                    
+                                    <div class="f_p_img">
+                                        <img class="img-fluid" src="{{ product.image.url }}"
+                                             alt="">
+                                        <div class="p_icon">
+                                            
+                                            <a href="{% url 'shop_product:pro_detail' product.slug %}"><i class="lnr lnr-cart"></i></a>
+                                        </div>
+                                    </div>
+                                    
+                                    <a href="{% url 'shop_product:pro_detail' product.slug %}"><h4>{{ product.name }}</h4></a>
+                                    <h5>{{product.selling_price}} $</h5>
+                                    <i class="
+                                                {% if product.rating < 0.5 %}far fa-star {% elif product.rating == 0.5 %} fa fa-star-half-alt {% else %} fa fa-star {% endif %} "
+                                           aria-hidden="true" style="color: yellow"></i>
+                                        <i class="
+                                                 {% if product.rating < 1.5 %}far fa-star {% elif product.rating == 1.5 %}fa fa-star-half-alt {% else %} fa fa-star{% endif %} "
+                                           aria-hidden="true" style="color: yellow"></i>
+                                        <i class="
+                                                {% if product.rating < 2.5 %}far fa-star{% elif product.rating == 2.5 %}fa fa-star-half-alt {% else %} fa fa-star{% endif %} "
+                                           aria-hidden="true" style="color: yellow"></i>
+                                        <i class="
+                                                 {% if product.rating < 3.5 %}far fa-star{% elif product.rating == 3.5 %}fa fa-star-half-alt {% else %} fa fa-star{% endif %} "
+                                           aria-hidden="true" style="color: yellow">
+                                    </i>
+                                    <br/>
+                                    <div class="mt-2">
+                                    {% if user.is_authenticated and product.user_id == user.id or user.is_staff %}
+                                            <a class="btn bg-primary text-white"
+                                               href="{% url 'shop_product:product_edit' product.id %}"><small><i>Edit</i></small></a>
+                                        {% endif %}
+    
+                                        {% if user.is_authenticated and product.user_id == user.id or user.is_staff %}
+                                            <a class="btn bg-danger text-white ml-1"
+                                               href="{% url 'shop_product:delete_product' product.id %}"><small><i>Delete</i></small></a>
+                                        {% endif %}
+                                        </div>
+    
+                                {% endfor %}
+                                </div>
+                                 
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        {% endif %}
+
+       
+{% endblock %}

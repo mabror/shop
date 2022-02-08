@@ -1,0 +1,109 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2>{% trans 'Order Confirmation' %}</h2>
+                    <div class="page_link">
+                        <a href="{% url 'shop_product:home_page' %}">{% trans 'Home' %}</a>
+                        <a href="confirmation.html">{% trans 'Confirmation' %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Home Banner Area =================-->
+
+    <!--================Order Details Area =================-->
+    <section class="order_details p_120">
+        <div class="container">
+            <h3 class="title_confirmation">{% trans 'Thank you. Your order has been received.' %}</h3>
+            <div class="row order_d_inner">
+                <div class="col-lg-6">
+                    <div class="details_item">
+                        <h4>{% trans 'Order Info' %}</h4>
+                        <ul class="list">
+                            <li><a href="#"><span>{% trans 'Name customer' %}</span> : {{ ord_obj.first_name }}, {{ ord_obj.last_name }}</a></li>
+                            <li><a href="#"><span>{% trans 'Date' %}</span> : {{ ord_obj.createdAt }}</a></li>
+                            <li><a href="#"><span>{% trans 'Payment statuss' %}</span> : {{ ord_obj.order_status }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="details_item">
+                        <h4>{% trans 'Shipping Address' %}</h4>
+                        <ul class="list">
+                            <li><a href="#"><span>{% trans 'Street' %}</span> : {{ ord_obj.street }}</a></li>
+                            <li><a href="#"><span>{% trans 'City' %}</span> : {{ ord_obj.city }}</a></li>
+                            <li><a href="#"><span>{% trans 'House number' %}</span> : {{ ord_obj.house_number }}</a></li>
+                          
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="order_details_table">
+                <h2>{% trans 'Order Details' %}</h2>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">{% trans 'Product' %}</th>
+                            <th scope="col">{% trans 'Quantity' %}</th>
+                            <th scope="col">{% trans 'Total' %}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for object in ord_obj.cart.cartproduct_set.all %}
+                        <tr>
+                            <td>
+                                {% for product in products %}
+                                    {% if product.id == object.product_id %}
+                                        <h5>{{ product }}</h5>
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <h5>x {{ object.quantity }}</h5>
+                            </td>
+                            <td>
+                                <p>{{ object.subtotal }}</p>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        
+                        <tr>
+                            <td>
+                                <h4 class="mt-2">{% trans 'Total' %}</h4>
+                            </td>
+                            <td>
+                                <p class="mt-2">{{ ord_obj.cart.get_amount }}</p>
+                            </td>
+                            <td>
+                                <div>
+                                    <form name="apelsin_form" action="https://oplata.kapitalbank.uz" action="GET">
+                                        <input type="hidden" name="cash" value="c71014829ef640dcb8c96a0437a6ae91">
+                                        <input type="hidden" name="redirectUrl"
+                                               value="https://krom-professional.com/order_detail/{{ order.id }}">
+                                        <input type="hidden" name="description" value="Payment for Krom professional">
+                                        <input type="hidden" name="amount" value="{{ ord_obj.cart.get_amount }}">
+                                        <input type="hidden" name="order_id" value="{{ order.id }}">
+                                        <button type="submit" class="main_btn">{% trans 'Payment' %}</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                     
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

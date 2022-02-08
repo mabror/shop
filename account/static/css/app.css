@@ -1,0 +1,50 @@
+
+
+
+.user-box {
+	display: flex;
+	align-items: center;
+	height: 60px;
+	border-left: 1px solid #f0f0f0;
+	margin-left: 1rem
+}
+
+
+.user-img {
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	border: 0 solid #e5e5e5;
+	padding: 0
+}
+@media screen and (max-width:767px) {
+	.user-box .user-info {
+		display: none
+	}
+	.authentication-forgot {
+		height: auto;
+		padding: 2.5rem 1rem
+	}
+}
+
+
+.user-info .user-name {
+	font-size: 15px;
+	font-weight: 500;
+	color: #413c3c
+}
+
+.user-info .designattion {
+	font-size: 13px;
+	color: #a9a8a8
+}
+
+.dropdown-toggle-nocaret:after {
+	display: none
+}
+
+.dropdown-menu-end {
+	--bs-position: end;
+	right: 0;
+	left: auto
+}

@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2>{% trans 'Shopping Cart' %}</h2>
+                    <div class="page_link">
+                        <a href="{% url 'shop_product:home_page' %}">{% trans 'Home' %}</a>
+                        <a href="cart.html">{% trans 'cart' %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Home Banner Area =================-->
+
+    <!--================Cart Area =================-->
+    <section class="cart_area">
+        <div class="container">
+            <div class="billing_details">
+                <div class="row  justify-content-center">
+                    <div class="col-md-8">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="text-center">{% trans 'Product Foto' %}</th>
+                                <th scope="col" class="text-center">{% trans 'Name' %}</th>
+                                <th scope="col" class="text-center">{% trans 'Price' %}</th>
+                                <th scope="col" class="text-center">{% trans 'Quantity' %}</th>
+                                <th scope="col" class="text-center">{% trans 'Subtotal' %}</th>
+                                <th scope="col" class="text-center">{% trans 'Action' %}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for rm in cartt.cartproduct_set.all %}
+                                <tr>
+                                    <td><img src="{{ rm.product.image.url }}" class="img-fluid"
+                                             style="width: 150px; height: 100px;" alt=""></td>
+                                    <td>{{ rm.product.name }}</td>
+                                    <td>{{ rm.product.selling_price }}</td>
+                                    <td>{{ rm.quantity }}</td>
+                                    <td>{{ rm.subtotal }}</td>
+                                    <td>
+                                        <a href="{% url 'shop_product:manager' rm.id %}?action=inc"
+                                           class="btn btn-primary"> + </a>
+                                        <a href="{% url 'shop_product:manager' rm.id %}?action=dcr"
+                                           class="btn btn-warning"> - </a>
+                                        <a href="{% url 'shop_product:manager' rm.id %}?action=rmv"
+                                           class="btn btn-danger"> x </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <th><a class="btn btn-primary text-light mt-2" href="{% url 'shop_product:chekout' %}">{% trans 'Checkout' %}</a>
+                                </th>
+                                <th colspan="3" class="text-right">{% trans 'Total' %}:</th>
+                                <th class="text-info">{{ cartt.total }}</th>
+                                {% if cartt.cartproduct_set.all %}
+                                    <th><a class="btn btn-danger" href="{% url 'shop_product:alldelete' %}">{% trans 'All Delete' %}</a></th>
+                                {% endif %}
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

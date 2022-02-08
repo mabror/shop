@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+
+
+{% block content %}
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content text-center">
+                <h2>{% trans 'Order Detail' %}</h2>
+                <div class="page_link">
+                    <a href="{% url 'shop_product:home_page' %}">{% trans 'Home' %}</a>
+                    <a href="confirmation.html">{% trans 'Confirmation' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <section class="cart_area">
+        <div class="container">
+            <div class="cart_inner">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">{% trans 'User' %}</th>
+                            <th scope="col">{% trans 'Phone' %}</th>
+                            <th scope="col">{% trans 'Subtotal' %}</th>
+                            <th scope="col">{% trans 'Confirm' %}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for ret in orders %}
+                        <tr>
+                            <td>
+                                <h5>{{ ret.user }}</h5>
+                            </td>
+                            <td>
+                                <h5>{{ ret.phone }}</h5>
+                            </td>
+                            <td>
+                                <h5>{{ ret.total }}</h5>
+                            </td>
+                            <td>
+                                <h5> <a class="main_btn" href="{% url 'shop_product:order_detail' ret.pk %}">{% trans 'Order confirmations' %}</a></h5>
+                            </td>
+                            <td>
+                                <h5></h5>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

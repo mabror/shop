@@ -1,0 +1,120 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2>Shop Category Page</h2>
+                    <div class="page_link">
+                        <a href="{% url 'shop_product:home_page' %}">{% trans 'Home' %}</a>
+                        <a href="{% url 'shop_product:categories_all' %}">{% trans 'Category' %}</a>
+                        <a href="category.html">{% trans 'Brand' %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cat_product_area p_120">
+        <div class="container">
+            <div class="row flex-row-reverse">
+                <div class="col-lg-9">
+                    <div class="product_top_bar">
+                        <div class="left_dorp">
+                            <select class="sorting">
+                                <option value="1">Default sorting</option>
+                                <option value="2">Default sorting 01</option>
+                                <option value="4">Default sorting 02</option>
+                            </select>
+                            <select class="show">
+                                <option value="1">Show 12</option>
+                                <option value="2">Show 14</option>
+                                <option value="4">Show 16</option>
+                            </select>
+                        </div>
+                        <div class="right_page ml-auto">
+                            <nav class="cat_page" aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#"><i class="fa fa-long-arrow-left"
+                                                                                           aria-hidden="true"></i></a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item blank"><a class="page-link" href="#">...</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                    <li class="page-item"><a class="page-link" href="#"><i
+                                            class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="latest_product_inner row">
+                        {% for product in brand_f %}
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            
+                            <div class="f_p_item">
+                                
+                                <div class="f_p_img">
+                                    <img class="img-fluid" src="{{ product.image.url }}"
+                                         alt="">
+                                    <div class="p_icon">
+                                        
+                                        <a href="{% url 'shop_product:pro_detail' product.slug %}"><i class="lnr lnr-cart"></i></a>
+                                    </div>
+                                </div>
+                                
+                                <a href="{% url 'shop_product:pro_detail' product.slug %}"><h4>{{ product.name }}</h4></a>
+                                <h5>{{product.selling_price}} $</h5>
+                                <i class="
+                                            {% if product.rating < 0.5 %}far fa-star {% elif product.rating == 0.5 %} fa fa-star-half-alt {% else %} fa fa-star {% endif %} "
+                                       aria-hidden="true" style="color: yellow"></i>
+                                    <i class="
+                                             {% if product.rating < 1.5 %}far fa-star {% elif product.rating == 1.5 %}fa fa-star-half-alt {% else %} fa fa-star{% endif %} "
+                                       aria-hidden="true" style="color: yellow"></i>
+                                    <i class="
+                                            {% if product.rating < 2.5 %}far fa-star{% elif product.rating == 2.5 %}fa fa-star-half-alt {% else %} fa fa-star{% endif %} "
+                                       aria-hidden="true" style="color: yellow"></i>
+                                    <i class="
+                                             {% if product.rating < 3.5 %}far fa-star{% elif product.rating == 3.5 %}fa fa-star-half-alt {% else %} fa fa-star{% endif %} "
+                                       aria-hidden="true" style="color: yellow">
+                                </i>
+                                <br/>
+                                <div class="mt-2">
+                                {% if user.is_authenticated and product.user_id == user.id or user.is_staff %}
+                                        <a class="btn bg-primary text-white"
+                                           href="{% url 'shop_product:product_edit' product.id %}"><small><i>{% trans 'Edit' %}</i></small></a>
+                                    {% endif %}
+
+                                    {% if user.is_authenticated and product.user_id == user.id or user.is_staff %}
+                                        <a class="btn bg-danger text-white ml-1"
+                                           href="{% url 'shop_product:delete_product' product.id %}"><small><i>{% trans 'Delete' %}</i></small></a>
+                                    {% endif %}
+                                    </div>
+
+                           
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="left_sidebar_area">
+                        <aside class="left_widgets p_filter_widgets">
+                            <div class="l_w_title">
+                                <h3>{% trans 'Product Filters' %}</h3>
+                            </div>
+                          
+
+
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

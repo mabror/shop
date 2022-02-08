@@ -1,0 +1,107 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2>Product Checkout</h2>
+                    <div class="page_link">
+                        <a href="{% url 'shop_product:home_page' %}">Home</a>
+                        <a href="checkout.html">Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="checkout_area p_120">
+        <div class="container">
+            <div class="billing_details">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h3>{% trans 'Billing Details' %}</h3>
+                        <form class="row contact_form" action="{% url 'shop_product:chekout' %}" method="post" novalidate="novalidate">
+                            {% csrf_token%}
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" id="id_first_name" name="first_name" placeholder="First name">
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" id="id_last_name" name="last_name" placeholder="Last name">
+                              
+                            </div>
+                            
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" id="id_phone" name="phone" placeholder="Phone number">
+                               
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" id="id_email" name="email" placeholder="Email Address">
+                                
+                            </div>
+                           
+                            
+                            
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="id_city" name="city" placeholder="Town/City">
+                               
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="id_district" name="district" placeholder="District">
+                        
+                            </div>
+                            <!-- <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP">
+                            </div> -->
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="id_house_number" name="house_number" placeholder="Address line 01">
+                  
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" id="id_street" name="street" placeholder="Street">
+                                
+                            </div>
+                            <button class="main_btn" type="submit">{% trans 'Proceed to Apelsin' %}</button>
+                          
+                        </form>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="order_box">
+                            <h2>{% trans 'Your Order' %}</h2>
+                            {% for rt in cart.cartproduct_set.all %}
+                            <ul class="list">
+                                <li><a href="#">Product <span>Total</span></a></li>
+                                <li><a href="#">{{ rt.product.name }}  <span class="middle">x {{rt.quantity}}</span> <span class="last">${{ rt.subtotal }}</span></a>
+                                </li>
+                                
+                            </ul>
+                            {% endfor %}
+                            <ul class="list list_2">
+                               
+                                <li><a href="#">Total <span>{{ cart.total }}</span></a></li>
+                            </ul>
+                            
+                            <div class="payment_item">
+                                <div class="radion_btn">
+                                    <input type="radio" id="f-option5" name="selector">
+                                    <label for="f-option5">{% trans 'Check payments' %}</label>
+                                    <div class="check"></div>
+                                </div>
+                                <p>Please send a check to Store Name, Store Street, Store Town, Store State / County,
+                                    Store Postcode</p>
+                            </div>
+                            
+                            <div class="creat_account">
+                                <input type="checkbox" id="f-option4" name="selector">
+                                <label for="f-option4">{% trans 'I’ve read and accept the' %} </label>
+                                <a href="#">terms & conditions*</a>
+                            </div>
+                            <a class="main_btn" href="{% url 'shop_product:mycart' %}">{% trans 'Continuie shopping' %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

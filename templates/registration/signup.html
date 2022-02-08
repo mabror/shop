@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2>{% trans "Login/Register" %}</h2>
+                    <div class="page_link">
+                        <a href="{% url 'shop_product:home_page' %}">{% trans 'Home' %}</a>
+                        <a href="registration.html">{% trans 'Register' %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Home Banner Area =================-->
+
+    <!--================Login Box Area =================-->
+    <section class="login_box_area p_120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="login_box_img">
+                        <img class="img-fluid" src="{% static 'img/login.jpg' %}" alt="">
+                        <div class="hover">
+                            <h4>Already have an account?</h4>
+                            <p>There are advances being made in science and technology everyday, and a good example of
+                                this is the</p>
+                            <a class="main_btn" href="{% url "login" %}">Login</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="login_form_inner reg_form">
+                        <h3>{% trans "Create an Account" %}</h3>
+                        <form class="row login_form"  method="post" id="contactForm"
+                              novalidate="novalidate">
+                        
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button type="submit" value="submit" class="btn submit_btn">Signup</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
