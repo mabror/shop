@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@c032nv)zorkrz)6x^7w3ff36c_tec8yx7mxfl#4xq(enhg*j3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['shop-new-online.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware', 
     'django.middleware.common.CommonMiddleware',
@@ -139,11 +140,17 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
-MEDIA_ROOT = BASE_DIR / 'media'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+MEDIA_URL = '/images/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -159,6 +166,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = '/shop'
 
 LOGIN_URL = "/login"
+
 
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
